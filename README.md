@@ -1,11 +1,46 @@
 # StockForge
 
+**Bahasa:** Indonesia · [English](README.en.md)
+
 Otomasi harian untuk Adobe Stock: ambil prompt dari Google Spreadsheet, generate gambar di Gemini Web
 lewat Chrome yang sudah login, tanam judul + keyword ke file, lalu saring dengan panel 4 juri AI.
 Yang lolos muncul di dashboard untuk kamu setujui dan upload manual.
 
 Untuk melanjutkan pengembangan, baca [`docs/DEVELOPER.md`](docs/DEVELOPER.md) (peta kode, API, resep
 penambahan fitur, dan daftar jebakan).
+
+## Contoh hasil
+
+Satu kartu nyata dari hasil run: lolos **4 dari 4 juri**, rata-rata **93**.
+
+![Contoh hasil generate](docs/images/contoh-hasil.jpg)
+
+`adobestock_20261029_085.jpg` · kategori 8 · 30 keyword tertanam di file.
+
+| Juri | Skor | Putusan |
+|---|---|---|
+| Event legibility | 95 | lolos |
+| Kelayakan jual | 85 | lolos |
+| Teknis & compliance | 94 | lolos |
+| Kecocokan metadata | 98 | lolos |
+
+Judul yang ditanam ke XMP/IPTC (dibaca Adobe Stock saat upload):
+
+> Macro studio shot of supple tan mycelium mushroom leather swatch beside raw organic mushrooms
+
+30 keyword ikut tertanam, dimulai dengan: `mycelium leather`, `mushroom leather`, `vegan leather`,
+`biomaterials`, `sustainable luxury`, `biofabricated textile`, `circular material`, `copy space`,
+`eco fashion material`, `cruelty free leather`, dan seterusnya.
+
+### Tampilan dashboard
+
+Tab **Gambar** — kartu hasil panel, di sini difilter "hanya yang lolos":
+
+![Dashboard tab gambar](docs/images/dashboard-gallery.png)
+
+Tab **Log** — tiap run satu blok, lengkap dengan durasi, jumlah gambar, dan hasilnya:
+
+![Dashboard tab log](docs/images/dashboard-log.png)
 
 ## Kebutuhan
 
@@ -171,3 +206,7 @@ dan `ag/claude-*` menerima gambar tapi menjawab "tidak ada foto" — sudah diuji
 - **Login hilang** → login manual sekali di jendela Chrome yang dibuka StockForge; profil menyimpan sesi.
 - **Juri error semua** → cek 9router hidup di `http://localhost:20128`, dan `router.api_key` masih valid.
 - **Gambar gagal terus** → cek `output/` apakah ada file 0 byte; hapus lalu jalankan ulang (resume otomatis).
+
+## Lisensi
+
+MIT — lihat [LICENSE](LICENSE).
