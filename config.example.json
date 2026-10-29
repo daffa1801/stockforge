@@ -1,0 +1,38 @@
+{
+  "sheet_url": "",
+  "sheet_name": "Master Prompt & Ide Lengkap",
+  "output_dir": "output",
+  "shortlist_dir": "output/_shortlist",
+  "rejected_dir": "output/_rejected",
+  "profiles": [
+    { "name": "Akun 1", "dir": "profiles/akun-1" },
+    { "name": "Akun 2", "dir": "profiles/akun-2" },
+    { "name": "Akun 3", "dir": "profiles/akun-3" },
+    { "name": "Akun 4", "dir": "profiles/akun-4" },
+    { "name": "Akun 5", "dir": "profiles/akun-5" },
+    { "name": "Akun 6", "dir": "profiles/akun-6" },
+    { "name": "Akun 7", "dir": "profiles/akun-7" },
+    { "name": "Akun 8", "dir": "profiles/akun-8" }
+  ],
+  "active_profile": 0,
+  "chrome_executable": "",
+  "headless": false,
+  "delay_between_prompts_sec": 12,
+  "timeout_per_image_sec": 900,
+  "max_per_concept": 3,
+  "concept_limit": 0,
+  "vote_threshold": 3,
+  "judge_parallel": 4,
+  "port": 8770,
+  "router": {
+    "url": "http://localhost:20128/v1/chat/completions",
+    "api_key": "",
+    "timeout_sec": 100
+  },
+  "judges": [
+    { "id": "event", "label": "Event legibility", "model": "ag/gemini-3.8-flash" },
+    { "id": "sell", "label": "Kelayakan jual", "model": "1/glm-5.3-flash" },
+    { "id": "tech", "label": "Teknis & compliance", "model": "1/deepseek-v4.1-flash" },
+    { "id": "meta", "label": "Kecocokan metadata", "model": "ag/gemini-3.8-flash-low" }
+  ]
+}
